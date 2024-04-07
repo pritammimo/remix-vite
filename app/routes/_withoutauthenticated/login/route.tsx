@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, redirect } from "@remix-run/react";
+import { Form} from "@remix-run/react";
 import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
 import * as zod from "zod"; 
@@ -10,6 +10,7 @@ const schema = zod.object({
   });
   
   type FormData = zod.infer<typeof schema>;
+  
 export default function MyForm() {
     const navigate = useNavigate();
     const {
@@ -30,7 +31,7 @@ export default function MyForm() {
     return (
       <Form onSubmit={handleSubmit(onSubmit)} >
         <label>
-          Name:
+          Name2:
           <input type="text" {...register("name")} />
           {errors.name && <p>{errors.name.message}</p>}
         </label>
